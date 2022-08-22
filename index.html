@@ -111,14 +111,7 @@
 				</div>
 			</div>
 			
-		<div class="toast">
-  			<div class="toast-header">
-    			Important:
-  			</div>
-  			<div class="toast-body">
-    			Not a Holder during snapshop
-  			</div>
-		</div>
+		
         </section>
 		
 	</div>
@@ -2149,7 +2142,7 @@ var map_addr_tokenlist = new Map([
 		
 		if( map_addr_holds.has(currentAccount) ){
 		
-			if( map_addr_holds.get(currentAccount) == 1 ){
+			if( parseInt(map_addr_holds.get(currentAccount),10) === 1 ){ 
 				HolderMint();
 			}
 			
@@ -2161,7 +2154,6 @@ var map_addr_tokenlist = new Map([
 		}
 		else{
 				$('#status').html('Not a Holder');
-				$('.toast').toast('show');
 			}
 		
 	
@@ -2268,21 +2260,13 @@ var map_addr_tokenlist = new Map([
                 $('#enableMetamask').attr('disabled',true)
             }
 
-            $('#enableMetamask').click(function() {
-                connect();
-            });
-
-            $('#btnMigrate').click(function() {
-                Migrate();
-            });
-					
+       					
 
             try {			
 		web3 = new Web3(ethereum);
             } catch (error) {
                 //alert(error)
             }
-	   getSupply();
             
         })
     </script>  
